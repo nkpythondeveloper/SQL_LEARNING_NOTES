@@ -84,7 +84,7 @@ UPDATE Employees SET salary = 55000 WHERE id = 1;
 
 DELETE FROM Employees WHERE id = 1;
 
-``
+```
 
 4. **SELECT** - Retrieves data from table.
 
@@ -96,7 +96,7 @@ SELECT * FROM Employees;
 
 ----
 
-## KEY DIFFERENCES BETWEEN DDL & DML
+### KEY DIFFERENCES BETWEEN DDL & DML
 
 | Feature | DDL (Data Definition Language) | DML (Data Manipulation Language) |
 | --------| -------------------------------| ---------------------------------|
@@ -226,3 +226,61 @@ SELECT * FROM Employees WHERE salary BETWEEN 50000 AND 80000;
 SELECT * FROM Employees WHERE name LIKE '%J';
 
 ```
+
+----
+
+### DIFFERENCE BETWEEN "WHERE" & "HAVING"
+
+| Feature | WHERE | HAVING |
+|---------|-------|--------|
+| Used for | Filter rows before grouping | Filter groups after aggregation |
+| Works with | Columns and expressions | Aggregate functions (SUM(), AVG(), etc) |
+
+
+
+**Example of using multiple clauses together**:
+
+```sql
+
+SELECT department, AVG(salary) AS average_salary
+FROM Employees
+WHERE salary > 30000
+GROUP BY department
+HAVING AVG(salary) > 50000
+ORDER BY average_salary DESC
+LIMIT 3;
+
+```
+
+----
+
+## SQL OPERATORS
+
+SQL Operators are special symbols or keywords used in queries to perform operations on data.
+They help filter, compare, and manipulate values in SQL Queries.
+
+### Types of SQL Operators
+
+1. **ARTIHMETIC OPERATORS**
+
+	Used to perform mathematical operations.
+
+	| Operator | Description | Example |
+	|----------|-------------|---------|
+	| + | Addition | SELECT 10 + 5; |
+	| - | Substraction | SELECT 10 - 5; |
+	| * | Multiplication | SELECT 10 * 5; |
+	| / | Division | SELECT 10 / 5; |
+	| % | Modulus | SELECT 10 % 3; |
+
+----
+
+2. **COMPARISION OPERATORS** 
+
+	Used for filtering data in WHERE clauses.
+
+	| Operator | Description | Example |
+	|----------|-------------|---------|
+	| = | Equal to | SELECT * FROM Employees WHERE salary = 50000; |
+	| != | Not equal to | SELECT * FROM Employees WHERE salary != 50000; |
+
