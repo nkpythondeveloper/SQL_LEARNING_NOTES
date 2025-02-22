@@ -1,5 +1,3 @@
-# SQL_LEARNING_NOTES
-
 # SQL LEARNING NOTES
 
 ## DDL - DATA DEFINITION LANGUAGE
@@ -9,7 +7,7 @@ These commands are used to create, modify and delete database objects like table
 
 **Examples of common DDL Commands**:
 
-1. CREATE - Creates database objects (tables, views, indexes)
+1. **CREATE** - Creates database objects (tables, views, indexes)
 
 ```sql
 
@@ -21,7 +19,7 @@ CREATE TABLE Employees (
 
 ```
 
-2. ALTER - Modifies existing database objects
+2. **ALTER** - Modifies existing database objects
 
 ```sql
 
@@ -29,7 +27,7 @@ ALTER TABLE Employees ADD COLUMN department VARCHAR(50);
 
 ```
 
-3. DROP - Deletes database objects.
+3. **DROP** - Deletes database objects.
 
 ```sql
 
@@ -37,7 +35,7 @@ DROP TABLE Employees;
 
 ```
 
-4. TRUNCATE - Deletes all rows from the table, but keeps the table structure.
+4. **TRUNCATE** - Deletes all rows from the table, but keeps the table structure.
 
 ```sql
 
@@ -45,7 +43,7 @@ TRUNCATE TABLE Employees;
 
 ```
 
-5. RENAME - Changes the name of the existing database object.
+5. **RENAME** - Changes the name of the existing database object.
 
 ```sql
 
