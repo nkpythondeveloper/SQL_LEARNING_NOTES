@@ -54,4 +54,52 @@ RENAME TABLE Employees TO Staff;
 ------
 
 
+## DML - DATA MANIPULATION LANGUAGE
+
+DML commands deal with the manipulation of data stored in the database tables.
+These commands allow you to insert, update, retrieve, and delete records.
+
+**Common DML Commands**:
+
+1. **INSERT** - Adds new record to a table.
+
+```sql
+
+INSERT INTO Employees (id, name, salary) VALUES (1, "John Doe", 50000);
+
+```
+
+2. **UPDATE** - Modifies existing records.
+
+```sql
+
+UPDATE Employees SET salary = 55000 WHERE id = 1;
+
+```
+
+3. **DELETE** - Removes records from a table.
+
+```sql
+
+DELETE FROM Employees WHERE id = 1;
+
+``
+
+4. **SELECT** - Retrieves data from table.
+
+```sql
+
+SELECT * FROM Employees;
+
+```
+
+----
+
+## KEY DIFFERENCES BETWEEN DDL & DML
+
+| Feature | DDL (Data Definition Language) | DML (Data Manipulation Language) |
+| --------| -------------------------------| ---------------------------------|
+| Purpose | Defines and manages, database structure | Modifies and manages data in tables. |
+| Commands | CREATE, ALTER, DROP, TRUNCATE, RENAME | INSERT, UPDATE, DELETE, SELECT |
+| Transaction Control | Auto-Commited (Changes are permament) | Can be rolled back (ROLLBACK) |
 
