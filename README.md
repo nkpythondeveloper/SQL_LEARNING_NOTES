@@ -1,4 +1,5 @@
-# SQL LEARNING NOTES
+# SQL LEARNING NOTES - MySQL Oriented
+
 
 ## DDL - DATA DEFINITION LANGUAGE
 
@@ -103,3 +104,125 @@ SELECT * FROM Employees;
 | Commands | CREATE, ALTER, DROP, TRUNCATE, RENAME | INSERT, UPDATE, DELETE, SELECT |
 | Transaction Control | Auto-Commited (Changes are permament) | Can be rolled back (ROLLBACK) |
 
+----
+
+## CLAUSES
+
+Clauses in SQL are built-in keywords used to filter, sort, and limit data retrievel in SELECT statements.
+They modify the query results, without modifiying the data.
+
+
+**Common SQL Clauses**
+
+1. **WHERE** - Filters records based on the condition.
+
+	- Used with **SELECT**, **UPDATE**, **DELETE**
+	- Returns only records that match the condition.
+
+```sql
+
+SELECT * FROM Employees WHERE salary > 50000;
+
+```
+
+2. **ORDER BY** - Sorts the result set.
+
+	- Default sorting is **ASC**(Ascending). Use **DESC** (Decending) for reverse order.
+
+```sql
+
+SELECT * FROM Employees ORDER BY salary DESC;
+
+```
+
+3. **GROUP BY** - Groups rows that have same value in specified column.
+
+	- Used with aggregate functions (SUM(), COUNT(), AVG(), etc)
+
+```sql
+
+SELECT department, COUNT(*) AS total_employees FROM Employees GROUP BY department;
+
+```
+
+4. **HAVING** - Filters grouped records.
+
+	- Similar to WHERE, but works with aggregates.
+
+```sql
+
+SELECT department, AVG(salary) AS average_salary
+FROM Employees
+GROUP BY department
+HAVING AVG(salary) > 60000;
+
+```
+
+5. **LIMIT** - Restricts the number of records retured.
+
+```sql
+
+SELECT * FROM Employees LIMIT 5;
+
+```
+
+6. **OFFSET** - Skips the number of records.
+
+	- Used with LIMIT for pagination.
+
+```sql
+
+SELECT * FROM Employees LIMIT 5 OFFSET 10; -- Skips first 10 rows, and fetches next 5 rows.
+
+```
+
+7. **JOIN** - Combines rows from multiple tables.
+
+	- Types:
+		1. INNER JOIN
+		2. LEFT JOIN/ LEFT OUTER
+		3. RIGHT JOIN/ RIGHT OUTER
+		4. FULL JOIN / FULL OUTER
+
+```sql
+
+SELECT Employees.name, Departments.department_name
+from Employees
+INNER JOIN Depratments ON Employees.department_id = Departments.department_id;
+
+```
+
+![JOIN TYPES](https://github.com/nkpythondeveloper/SQL_LEARNING_NOTES/blob/main/joins-venn.png)
+
+
+8. **DISTINCT** - Removes duplicate values.
+
+```sql
+
+SELECT DISTINCT department FROM Employees;
+
+``` 
+
+9. **IN** - Filter values in a list.
+
+```sql
+
+SELECT * FROM Employees WHERE department IN ["HR", "IT", "Finance"];
+
+```
+
+10. **BETWEEN** - Filters within a list.
+
+```sql
+
+SELECT * FROM Employees WHERE salary BETWEEN 50000 AND 80000;
+
+```
+
+11. **LIKE** - Matches patterns in text (used with wildcards %, _)
+
+```sql
+
+SELECT * FROM Employees WHERE name LIKE '%J';
+
+```
