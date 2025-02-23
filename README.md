@@ -283,4 +283,14 @@ They help filter, compare, and manipulate values in SQL Queries.
 	|----------|-------------|---------|
 	| = | Equal to | SELECT * FROM Employees WHERE salary = 50000; |
 	| != | Not equal to | SELECT * FROM Employees WHERE salary != 50000; |
+	| > | Greater than | SELECT * FROM Employees WHERE salary > 40000; |
+	| < | Less than | SELECT * FROM Employees WHERE salary < 50000; |
+	| >= | Greater than equal to | SELECT * FROM Employees WHERE salary >= 45000; |
+	| <= | Less than equal to | SELECT * FROM Employees WHERE salary <= 40000; |
+	| BETWEEN | Within a range | SELECT * FROM Employees WHERE salary BETWEEN 30000 AND 50000; |
+	| IN | Matches any within a given list | SELECT * FROM Employees WHERE department in ("HR, "IT", "Finance"); |
+	| LIKE | Pattern Matching (wildcards %, \_) | SELECT * FROM Employees WHERE name LIKE "S%"; |
+
+
+---- 
 
