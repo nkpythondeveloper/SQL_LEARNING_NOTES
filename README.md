@@ -421,7 +421,7 @@ INNER JOIN Depratments ON Employees.department_id = Departments.department_id;
 
 ```
 
-This query will return records from Employees table only who have a matching department_id in Departments Table.
+	This query will return records from Employees table only who have a matching department_id in Departments Table.
 
 
 2. **LEFT JOIN**
@@ -436,7 +436,7 @@ LEFT JOIN Depratments ON Employees.department_id = Departments.department_id;
 
 ```
 
-This query will return all the records from Employees table, and matching records from Departments table.
+	This query will return all the records from Employees table, and matching records from Departments table.
 
 
 3. **RIGHT JOIN**
@@ -451,5 +451,5 @@ RIGHT JOIN Depratments ON Employees.department_id = Departments.department_id;
 
 ```
 
-This query will return all the records from Departments table, and matching records from Employees table.
+	This query will return all the records from Departments table, and matching records from Employees table.
 
