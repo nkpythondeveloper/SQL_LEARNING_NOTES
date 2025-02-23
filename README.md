@@ -400,7 +400,8 @@ Joins in SQL are used to combine rows from two or more tables based on a related
 
 **Departments**
 
-| department_id | department_name | 
+| department_id | department_name |
+|---------------|-----------------| 
 | IT | Information Technology |
 | Management | Manage the Company Operation | 
 | Operations | Email Operations |
