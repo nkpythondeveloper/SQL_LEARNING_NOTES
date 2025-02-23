@@ -294,3 +294,161 @@ They help filter, compare, and manipulate values in SQL Queries.
 
 ---- 
 
+3. **LOGICAL OPERATORS**
+
+	Used to combine conditions in **WHERE** clauses.
+
+	| Operator | Description | Example |
+	|----------|-------------|---------|
+	| AND | Both conditions should be True | SELECT * FROM Employees WHERE salary > 40000 AND department_id = 1; |
+	| OR | At least one condition must be True | SELECT * FROM Employees WHERE salary > 35000 OR department_id in ("HR, "Finances"); |
+	| NOT | Negates a condition | SELECT * FROM Employees WHERE NOT department_id = 4; |
+	| IS NULL | Checks for NULL values | SELECT * FROM Employees WHERE salary IS NULL; |
+	| IS NOT NULL | Checks for non-NULL values | SELECT * FROM Employees WHERE salary IS NOT NULL; |
+
+----
+
+4. **BITWISE OPERATORS**
+	
+	Used for performing bitwise operations on integers.
+
+	| Operator | Description | Example ( 5= 101, 3 = 011 ) |
+	|----------|-------------|-----------------------------|
+	| & (AND) | Performs bitwise AND | SELECT 5 & 3; |
+	| ` (OR) | Performs bitwise OR | SELECT 5 ` 3; |
+	| ^ (XOR) | Performs bitwise XOR | SELECT 5 ^ 3; |
+	| ~ (NOT) | Performs bitwise NOT | SELECT ~ 5; |
+
+----
+
+5. **STRING OPERATORS**
+
+	Used for working with string data.
+
+	| Operator | Description | Example |
+	|----------|-------------|---------|
+	| LIKE | Pattern Matching | SELECT * FROM Employees WHERE name LIKE "J%"; |
+
+----
+
+6. **ASSIGNMENT OPERATOR**
+
+	Used for assigning values to variables in SQL.
+
+	| Operator | Description | Example |
+	|----------|-------------|---------|
+	| = | Asigns a value | SET @salary = 50000; |
+
+----
+
+7. **SET OPERATORS**
+
+	Used to combine results of multiple queries.
+
+	| Operator | Description | Example |
+	|----------|-------------|---------|
+	| UNION | Combines results (removes duplicates) | SELECT name FROM Employees UNION SELECT name FROM managers; |
+	| UNION ALL | Combines results (keeps duplicates) | SELECT name FROM Employees UNION ALL SELECT name FROM managers; |
+	| EXCEPT/MINUS | Returns records from first query, but not in second | SELECT name FROM Employees EXCEPT SELECT name FROM managers; |
+
+----
+
+**Example of using multiple Operators Together**
+
+```sql
+
+SELECT name, salary, department
+FROM Employees
+WHERE salary BETWEEN (30000 AND 50000)
+AND
+department IN ("HR", "IT")
+ORDER BY salary DESC
+LIMIT 5;
+
+```
+
+## SQL JOINS
+
+Joins in SQL are used to combine rows from two or more tables based on a related column.
+
+
+**Types of Joins**:
+	1. INNER JOIN
+	2. LEFT JOIN
+	3. RIGHT JOIN
+	4. FULL JOIN
+	5. SELF JOIN
+	6. CROSS JOIN
+
+
+
+**Employees** 
+
+| emp_id | emp_name | emp_salary | emp_department_id |
+|--------|------|--------|---------------|
+| 1 | Nitin K | 150000 | IT |
+| 2 | Sachin K | 200000 | Management |
+| 3 | Swapnil T | 150000 | IT |
+| 4 | Ajinkya B | 100000 | IT |
+| 5 | Pranay M | 75000 | Operations |
+| 6 | Sahil D | 80000 |  Offers |
+| 7 | Dipal P | 90000 | Offers |
+| 8 | Sudeep A | 80000 | Operations |
+| 9 | Maddy S | 65000 | Operations |
+| 10 | Amit Y | 55000 | Operations |
+
+
+**Departments**
+
+| department_id | department_name | 
+| IT | Information Technology |
+| Management | Manage the Company Operation | 
+| Operations | Email Operations |
+| Offers | Affiliate Management |
+
+----
+
+1. **INNER JOIN**
+	
+	Returns only matching rows from both the tables.
+
+```sql
+
+SELECT Employees.emp_name, Employees.salary, Departments.department_name
+FROM Employees
+INNER JOIN Depratments ON Employees.department_id = Departments.department_id;
+
+```
+
+This query will return records from Employees table only who have a matching department_id in Departments Table.
+
+
+2. **LEFT JOIN**
+
+	Returns all records from Left table, and matching records from the Right table. If no match, NULL is returned.
+
+```sql
+
+SELECT Employees.emp_name, Employees.salary, Departments.department_name
+FROM Employees
+LEFT JOIN Depratments ON Employees.department_id = Departments.department_id;
+
+```
+
+This query will return all the records from Employees table, and matching records from Departments table.
+
+
+3. **RIGHT JOIN**
+
+	Returns all records from Right table, and matching records from the Left table. If no match, NULL is returned.
+
+```sql
+
+SELECT Employees.emp_name, Employees.salary, Departments.department_name
+FROM Employees
+RIGHT JOIN Depratments ON Employees.department_id = Departments.department_id;
+
+```
+
+This query will return all the records from Departments table, and matching records from Employees table.
+
